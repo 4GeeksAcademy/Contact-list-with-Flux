@@ -8,8 +8,7 @@ import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
-import { Contactform } from "./component/contact_form";
-import { Contactlist } from "./component/contact_form";
+
 import { Footer } from "./component/footer";
 
 //create your first component
@@ -25,8 +24,6 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/" element={<Contactform />} />
-						<Route path="/" element={<Contactlist />} />
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
