@@ -45,16 +45,24 @@ export const Demo = () => {
 							key={index}
 							className="list-group-item d-flex justify-content-between"
 							>
-							{item.name}
-							<br/>
-							{item.address}
-							<br/>
-							{item.phone}
+							<div>
+							<img src="../../../img/frodo&paula.jpg" alt="Frodo y Paula"></img>
+
+								<h4>{item.name}</h4>
+							
+								{item.address}
+								<br/>
+								{item.phone}
+								<i class="fa-regular fa-pen-to-square" onClick={() => actions.deleteContact(index)}></i>
 						
-							<button className="btn btn-success" onClick={() => actions.deleteContact(index)}>
+								<button className="btn btn-success" onClick={() => actions.deleteContact(index)}>
 								eliminar
-							</button>
+								</button>
+							</div>
 						</li>
+
+								
+							
 					);
 				})}
 			</ul>

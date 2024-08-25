@@ -7,7 +7,7 @@ import "../styles/index.css";
 
 //import your own components
 import Layout from './layout.js'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 //
 const root = createRoot(document.querySelector("#app"))
 

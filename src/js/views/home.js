@@ -4,7 +4,7 @@ import "../../styles/home.css";
 
 export const Home = () => (
 	<div className="text-center mt-5">
-		<h1>funciona</h1>
+		<h1 className="bg-light">Lista de contactos</h1>
 		<p>
 			<img src={rigoImage} />
 		</p>

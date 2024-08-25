@@ -42,15 +42,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				*/
 				console.log ('loadSomeData')
 				setStore({ contacts: [{
-					name: "FIRST",
-					address: "laderas",
-					phone: "9566221"
-				},
-				{
-					name: "Fsecond",
-					address: "los pionos",
-					phone: "958885"
-				}] });
+					name: "",
+					address: "",
+					phone: ""
+				}
+				] });
 				fetch('https://playground.4geeks.com/contact/agendas/piedrapapel/contacts')
 					.then ( (response)=> response.json())
 					.then( (data)=> setStore ({contacts: data.contacts}))
