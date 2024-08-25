@@ -15,7 +15,7 @@
 // );
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { contactForm } from "../component/contactForm";
+import { ContactForm } from "../component/contactForm";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import Modal from "../component/modal";
@@ -74,6 +74,7 @@ export const Home = () => {
                             />
                         ))}
                     </ul>
+                    
                 </div>
             </div>
             <Modal show={showModal} onClose={closeModal} onDelete={deleteContact} />

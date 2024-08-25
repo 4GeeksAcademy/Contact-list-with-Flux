@@ -11,16 +11,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-type": "application/json"
 					}
 				})
-				.then(resp => {
-					if (resp.status === 404) {
+					.then(resp => {
+						if (resp.status === 404) {
+							return false;
+						}
+						return resp.ok;
+					})
+					.catch(error => {
+						console.error("Error checking user existence:", error);
 						return false;
-					}
-					return resp.ok;
-				})
-				.catch(error => {
-					console.error("Error checking user existence:", error);
-					return false;
-				});
+					});
 			},
 
 			createUser: () => {
@@ -31,20 +31,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					body: JSON.stringify({})
 				})
-				.then(resp => {
-					if (!resp.ok) {
-						if (resp.status === 400) {
-							return resp.json().then(errorData => {
-								console.error("Error creating user:", errorData.detail);
-								return;
-							});
+					.then(resp => {
+						if (!resp.ok) {
+							if (resp.status === 400) {
+								return resp.json().then(errorData => {
+									console.error("Error creating user:", errorData.detail);
+									return;
+								});
+							}
+							throw new Error(`Error status: ${resp.status}`);
 						}
-						throw new Error(`Error status: ${resp.status}`);
-					}
-				})
-				.catch(error => {
-					console.error("Error creating user:", error);
-				});
+					})
+					.catch(error => {
+						console.error("Error creating user:", error);
+					});
 			},
 
 			getContacts: () => {
@@ -87,15 +87,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					body: JSON.stringify(contact)
 				})
-				.then(resp => {
-					if (!resp.ok) {
-						throw new Error(`Error status: ${resp.status}`);
-					}
-					return getActions().getContacts();
-				})
-				.catch(error => {
-					console.error("Error creating contact:", error);
-				});
+					.then(resp => {
+						if (!resp.ok) {
+							throw new Error(`Error status: ${resp.status}`);
+						}
+						return getActions().getContacts();
+					})
+					.catch(error => {
+						console.error("Error creating contact:", error);
+					});
 			},
 
 			deleteContact: (id) => {
@@ -105,15 +105,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-type": "application/json"
 					}
 				})
-				.then(resp => {
-					if (!resp.ok) {
-						throw new Error(`Error status: ${resp.status}`);
-					}
-					return getActions().getContacts();
-				})
-				.catch(error => {
-					console.error("Error deleting contact:", error);
-				});
+					.then(resp => {
+						if (!resp.ok) {
+							throw new Error(`Error status: ${resp.status}`);
+						}
+						return getActions().getContacts();
+					})
+					.catch(error => {
+						console.error("Error deleting contact:", error);
+					});
 			},
 
 			updateContact: (id, updatedContact) => {
@@ -124,15 +124,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					},
 					body: JSON.stringify(updatedContact)
 				})
-				.then(resp => {
-					if (!resp.ok) {
-						throw new Error(`Error status: ${resp.status}`);
-					}
-					return getActions().getContacts();
-				})
-				.catch(error => {
-					console.error("Error updating contact:", error);
-				});
+					.then(resp => {
+						if (!resp.ok) {
+							throw new Error(`Error status: ${resp.status}`);
+						}
+						return getActions().getContacts();
+					})
+					.catch(error => {
+						console.error("Error updating contact:", error);
+					});
 			}
 		}
 	};

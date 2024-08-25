@@ -5,11 +5,11 @@ export const Navbar = () => {
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
 
-			<h4 className=" mx-3 text-secondary">Lista de contactos</h4>
+			<h4 className=" mx-3 text-secondary ">Ejercicio lista de contactos.</h4>
 
 			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary mx-4">Añadir contacto</button>
+				<Link to="/add">
+					<button className="btn btn-success mx-4">Añadir contacto</button>
 				</Link>
 			</div>
 		</nav>

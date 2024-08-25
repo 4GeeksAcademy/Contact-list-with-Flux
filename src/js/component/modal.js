@@ -20,8 +20,8 @@ const Modal = ({ show, onClose, onDelete }) => {
                         <p>En serio que quieres borrar este contacto ?? No podrás recuperarlo !!</p>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" onClick={onClose}>Cancel</button>
-                        <button type="button" className="btn btn-danger" onClick={onDelete}>Delete</button>
+                        <button type="button" className="btn btn-secondary" onClick={onClose}>Cancelar</button>
+                        <button type="button" className="btn btn-danger" onClick={onDelete}>Sí coño, borralo ya</button>
                     </div>
                 </div>
             </div>
