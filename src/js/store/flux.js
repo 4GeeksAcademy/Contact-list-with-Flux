@@ -8,9 +8,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				},
 				{
+					title: "third",
+					background: "white",
+					initial: "white"
+				},
+				{
 					title: "SECOND",
 					background: "white",
 					initial: "white"
+				}
+			],
+			contacts: [
+				{
+					name: "FIRST",
+					address: "laderas",
+					phone: "9566221"
+				},
+				{
+					name: "Fsecond",
+					address: "los pionos",
+					phone: "958885"
 				}
 			]
 		},
@@ -20,6 +37,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 			loadSomeData: () => {
+				/**
+					fetch().then().then(data => setStore({ "foo": data.bar }))
+				*/
+				console.log ('loadSomeData')
+				setStore({ contacts: [{
+					name: "FIRST",
+					address: "laderas",
+					phone: "9566221"
+				},
+				{
+					name: "Fsecond",
+					address: "los pionos",
+					phone: "958885"
+				}] });
+				fetch('https://playground.4geeks.com/contact/agendas/piedrapapel/contacts')
+					.then ( (response)=> response.json())
+					.then( (data)=> setStore ({contacts: data.contacts}))
+					
+
+			},
+			deleteContact: (indexToDelete) => {
+				
+				console.log ('deleteContact desde flux', indexToDelete)
+				const store = getStore();
+				console.log (store.contacts)
+				console.log (store.contacts.filter ((elemento, index)=> index !=indexToDelete))
+				setStore({ contacts: store.contacts.filter ((elemento, index)=> index !=indexToDelete)  });
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/

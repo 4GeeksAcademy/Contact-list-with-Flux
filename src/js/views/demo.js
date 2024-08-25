@@ -4,10 +4,16 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
+import { func } from "prop-types";
 
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
+	function deleteItem (indexToDelete){
+		console.log ('deleteItem', indexToDelete)
+		console.log (store.contacts.filter ((elemento, index)=> index !=indexToDelete))
+		  
+	} 
 	return (
 		<div className="container">
 			<ul className="list-group">
@@ -33,10 +39,28 @@ export const Demo = () => {
 						</li>
 					);
 				})}
+				{store.contacts.map((item, index) => {
+					return (
+						<li
+							key={index}
+							className="list-group-item d-flex justify-content-between"
+							>
+							{item.name}
+							<br/>
+							{item.address}
+							<br/>
+							{item.phone}
+						
+							<button className="btn btn-success" onClick={() => actions.deleteContact(index)}>
+								eliminar
+							</button>
+						</li>
+					);
+				})}
 			</ul>
 			<br />
 			<Link to="/">
-				<button className="btn btn-primary">Back home</button>
+				<button className="btn btn-primary">Ir a inicio</button>
 			</Link>
 		</div>
 	);
