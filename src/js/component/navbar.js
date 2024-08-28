@@ -15,9 +15,3 @@ export const Navbar = () => {
 		</nav>
 	);
 };
-// SEudo Código:
-
-// 1. Crear vista contactos
-// 2. Listar los contactos
-//3. Crear vista formulario de contacto
-// 

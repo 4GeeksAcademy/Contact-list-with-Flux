@@ -18,7 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return resp.ok;
 					})
 					.catch(error => {
-						console.error("Error checking user existence:", error);
+						console.error("Error:", error);
 						return false;
 					});
 			},
@@ -35,7 +35,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						if (!resp.ok) {
 							if (resp.status === 400) {
 								return resp.json().then(errorData => {
-									console.error("Error creating user:", errorData.detail);
+									console.error("Error creando el usuario:", errorData.detail);
 									return;
 								});
 							}
@@ -43,7 +43,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					.catch(error => {
-						console.error("Error creating user:", error);
+						console.error("Error creando el usuario:", error);
 					});
 			},
 
@@ -94,7 +94,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return getActions().getContacts();
 					})
 					.catch(error => {
-						console.error("Error creating contact:", error);
+						console.error("Error creando el contacto:", error);
 					});
 			},
 
@@ -112,7 +112,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return getActions().getContacts();
 					})
 					.catch(error => {
-						console.error("Error deleting contact:", error);
+						console.error("Error borrando el contacto:", error);
 					});
 			},
 
@@ -131,7 +131,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return getActions().getContacts();
 					})
 					.catch(error => {
-						console.error("Error updating contact:", error);
+						console.error("Error actualizando el contacto:", error);
 					});
 			}
 		}

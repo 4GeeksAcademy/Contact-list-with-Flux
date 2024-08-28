@@ -16,7 +16,7 @@ export const AddContact = () => {
 
     useEffect(() => {
         if (id) {
-            const selectedContact = store.contacts.find(contact => contact.id === parseIn(id));
+            const selectedContact = store.contacts.find(contact => contact.id === parseInt(id));
             if (selectedContact) {
                 setContact({
                     name: selectedContact.name,
@@ -55,7 +55,7 @@ export const AddContact = () => {
     return (
         <div className="container">
             <div>
-                <h1 className="text-center mt-5">{id ? "Edit Contact" : "Añade un contacto nuevo"}</h1>
+                <h1 className="text-center mt-5">{id ? "Editar contacto" : "Añade un contacto nuevo"}</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>Nombre completo</label>
@@ -73,7 +73,7 @@ export const AddContact = () => {
                         <label>Dirección</label>
                         <input type="text" className="form-control" placeholder="Introduce tu dirección" name="address" value={contact.address} onChange={handleChange} />
                     </div>
-                    <button type="submit" className="btn btn-primary w-100 my-4 form-control">{id ? "Update" : "Guardar"}</button>
+                    <button type="submit" className="btn btn-primary w-100 my-4 form-control">{id ? "Actualizar" : "Añadir"}</button>
                     <Link className="m-1 w-50 text-center" to="/">Ir a contactos</Link>
                 </form>
             </div>
